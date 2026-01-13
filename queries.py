@@ -13,11 +13,12 @@ ORDERING = """
     WHEN Term = NULL THEN 1
     ELSE 2
     END) DESC,
+Term ASC,
 (CASE 
-    WHEN LEFT(C.Term, 1) = 'F' THEN CONCAT(RIGHT(C.Term, 2), '-', '3')
-    WHEN LEFT(C.Term, 1) = 'W' THEN CONCAT(RIGHT(C.Term, 2), '-', '1')
-    WHEN LEFT(C.TERM, 1) = 'S' THEN CONCAT(RIGHT(C.Term, 2), '-', '2')
-    ELSE NULL
+    WHEN LEFT(C.Term, 1) = 'F' THEN 1
+    WHEN LEFT(C.Term, 1) = 'W' THEN 2
+    WHEN LEFT(C.TERM, 1) = 'S' THEN 3
+    ELSE 4
     END) ASC,
 (CASE 
     WHEN C.CourseType = "Non-Math" THEN 1
