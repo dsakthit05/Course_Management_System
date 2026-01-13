@@ -29,7 +29,7 @@ ORDERING = """
 
 COLUMNS_1 = ["Course Code", "Course Name", "Course Type", "Prerequisite Code", "Prerequisite Name", "Minimum Grade"]
 PREREQS = f"""
-SELECT DISTINCT
+SELECT
 	C.CourseCode,
     C.CourseName,
     C.CourseType,
