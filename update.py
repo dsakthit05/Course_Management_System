@@ -104,21 +104,27 @@ def update_prereq():
         UPDATE 
             prerequisite_courses
         SET {cm.PREREQ_COLUMNS[column - 1]} = {value}
-        WHERE {cm.PREREQ_COLUMNS[0]} = "{course_code}";
+        WHERE 
+            {cm.PREREQ_COLUMNS[0]} = "{course_code}" AND
+            {cm.PREREQ_COLUMNS[1]} = "{prereq_code}";
         """
     elif column == 3:
         query = f"""
         UPDATE 
             prerequisite_courses
         SET {cm.PREREQ_COLUMNS[2]} = {value}
-        WHERE {cm.PREREQ_COLUMNS[0]} = "{course_code}";
+        WHERE 
+            {cm.PREREQ_COLUMNS[0]} = "{course_code}" AND
+            {cm.PREREQ_COLUMNS[1]} = "{prereq_code}";
         """
     elif 1 <= column <= 3:
         query = f"""
         UPDATE
             prerequisite_courses
         SET {cm.PREREQ_COLUMNS[column - 1]} = "{value}"
-        WHERE {cm.PREREQ_COLUMNS[0]} = "{course_code}";
+        WHERE 
+            {cm.PREREQ_COLUMNS[0]} = "{course_code}" AND
+            {cm.PREREQ_COLUMNS[1]} = "{prereq_code}";
         """
     else:
         print("No entries were updated")

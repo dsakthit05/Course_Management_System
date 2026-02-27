@@ -13,11 +13,14 @@ ORDERING = """
     WHEN Term = NULL THEN 1
     ELSE 2
     END) DESC,
-Term ASC,
+(CASE
+    WHEN C.Term IS NOT NULL THEN RIGHT(C.Term, 2)
+    ELSE NULL
+    END) ASC,
 (CASE 
-    WHEN LEFT(C.Term, 1) = 'F' THEN 1
-    WHEN LEFT(C.Term, 1) = 'W' THEN 2
-    WHEN LEFT(C.TERM, 1) = 'S' THEN 3
+    WHEN LEFT(C.Term, 1) = 'W' THEN 1
+    WHEN LEFT(C.Term, 1) = 'S' THEN 2
+    WHEN LEFT(C.TERM, 1) = 'F' THEN 3
     ELSE 4
     END) ASC,
 (CASE 
