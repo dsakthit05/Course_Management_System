@@ -84,8 +84,7 @@ def num_credit():
         FROM 
             course_info
         WHERE 
-            CourseType = "{cm.COURSE_TYPE[type - 1]}" AND
-            Completion = "Completed";
+            CourseType = "{cm.COURSE_TYPE[type - 1]}"
         """
     elif column == 2:
         cm.print_list(cm.COMPLETION_TYPES)
